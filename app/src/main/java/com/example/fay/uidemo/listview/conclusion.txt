@@ -1,8 +1,0 @@
-1.创建listview布局
-2.创建ListView对象，并通过findViewById将布局文件绑定到对象
-3.创建Adapter，如果是纯文字可使用ArrayAdapter，如果包括其他媒体文件，可使用SimpleAdatper
-4.构造数据对象，填充adapter（adapter填充包括指定view布局中的控件id)
-5.给ListView配置adapter
-6.ListView添加滑动事件监听和点击事件监听（父类Activity实现OnItemClickListener和OnScrollListener)
-7.实现onItemClick方法或者onScrollStateChanged方法
-8.滑动时更新数据对象，并通知view更新（notifyDataSetChanged)
