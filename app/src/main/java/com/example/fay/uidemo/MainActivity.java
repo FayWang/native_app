@@ -9,6 +9,8 @@ import android.widget.ArrayAdapter;
 import android.widget.ListView;
 
 import com.example.fay.uidemo.activity.SimpleListViewActivity;
+import com.example.fay.uidemo.activity.SpinnerActivity;
+import com.example.fay.uidemo.activity.WebViewActivity;
 
 /**
  * demo首页，展示常用控件列表，点击进入每个控件的demo页面
@@ -16,7 +18,9 @@ import com.example.fay.uidemo.activity.SimpleListViewActivity;
 public class MainActivity extends AppCompatActivity implements AdapterView.OnItemClickListener {
     private ListView listView;
     private ArrayAdapter<String> adapter;
-    private String[] data = {SimpleListViewActivity.class.getSimpleName()};
+    private String[] data = {SimpleListViewActivity.class.getSimpleName(),
+            SpinnerActivity.class.getSimpleName(),
+            WebViewActivity.class.getSimpleName()};
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -34,6 +38,7 @@ public class MainActivity extends AppCompatActivity implements AdapterView.OnIte
 
     /**
      * 重写点击处理方法，根据所点击item的名字打开对应的activity
+     *
      * @param parent
      * @param view
      * @param position
@@ -42,14 +47,10 @@ public class MainActivity extends AppCompatActivity implements AdapterView.OnIte
     @Override
     public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
         String name = (String) listView.getItemAtPosition(position);
-        Intent intent = null;
-        if (SimpleListViewActivity.class.getSimpleName().equals(name)) {
-            intent = new Intent(this, SimpleListViewActivity.class);
-            intent.setFlags(Intent.FLAG_ACTIVITY_MULTIPLE_TASK);
-        }
-        if (intent != null) {
-            startActivity(intent);
-        }
+        Intent intent = new Intent();
+        intent.setClassName(this, this.getPackageName() + ".activity." + name);
+        intent.setFlags(Intent.FLAG_ACTIVITY_MULTIPLE_TASK);
+        startActivity(intent);
     }
 
 }

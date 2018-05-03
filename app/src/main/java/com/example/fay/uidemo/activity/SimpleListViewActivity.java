@@ -34,7 +34,7 @@ public class SimpleListViewActivity extends AppCompatActivity implements AbsList
         listView = (HeaderListView) findViewById(R.id.header_listView);
         //2.listView设置刷新监听器
         listView.setRefreshListener(this);
-        //3.构造数据适配器，from表示每个item的key，to表示对应的UI控件
+        //3.构造数据适配器，from表示每个item的key数组，to表示对应的UI控件的id数组
         adapter = new SimpleAdapter(this, getData(), R.layout.adpater_simple_listview, new String[]{"pic", "text"}, new int[]{R.id.imageView, R.id.textView});
         //4.listView配置数据适配器
         listView.setAdapter(adapter);

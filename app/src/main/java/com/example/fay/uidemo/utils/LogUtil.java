@@ -7,7 +7,7 @@ import android.util.Log;
  * 设置log_level级别，用于不同场景的日志输出
  */
 public class LogUtil {
-    public final int LOG_LEVEL = ASSERT;
+    public static final int LOG_LEVEL = 7;
 
     /**
      * Priority constant for the println method; use Log.v.
